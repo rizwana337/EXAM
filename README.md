@@ -211,6 +211,13 @@ Labels: The total pending amount (or percentage share) can be displayed directly
 ###### Example:
 Let’s say we have pending delivery data for three countries:
 **UK:** $ 1,36,300 (53.33% of total pending amount)
+
 **UAE:** $ 53,800 (21.3% of total pending amount)
+
 **USA:** $65,500 (25.63% of total pending amount)
+
+![image](https://github.com/user-attachments/assets/9a16ae25-f079-4811-9ec3-5a0ecd9c3ce9)
+
+Fig: the total number of transactions, total quantity sold, and total amount spent for each customer, along with the product details.
+
 
