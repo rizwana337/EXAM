@@ -302,6 +302,7 @@ Use two distinct colors to represent the two age categories. For example:
 The areas may overlap for certain products, visually indicating where preferences align or differ between age groups.
 
 <img width="453" alt="image" src="https://github.com/user-attachments/assets/697b07f7-80e2-43dc-a4ce-1c15ad5f6be2">
+
 Fig:10. Country with Minimum Transactions and Sales Amount
 
 #### Columns Explained:
