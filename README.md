@@ -123,15 +123,15 @@ Make API calls at regular intervals to ensure the most recent shipment statuses 
 
 #### 3. Data Transformation
 The transformation step involves:
-#### *Data Cleansing:
+#### * Data Cleansing:
 Dropping  duplicates (based on Customer_ID or Order_ID).
 Handled missing or null values (e.g., shipping status, order amounts).
 Handled special characterises (e.g., Frist name status, last name).
 Standardized text fields 
-#### *Joining Tables:
+#### * Joining Tables:
 Customer with Shipping: Join on Customer_ID to obtain the shipping status for each order.
 (Customer with Shipping)join with Orders: Join on Customer_ID to get each customer’s order details.
-#### *Derived Columns and Calculations:
+#### * Derived Columns and Calculations:
 1. Total Amount Spent and Country for the Pending Delivery Status for Each Country
 Objective: Calculated the total monetary value of transactions for orders that are still in a "Pending" delivery status and aggregate this by each country.
 Approach:
@@ -163,12 +163,12 @@ Implemented transformations using DataFrame APIs such as groupBy, agg, join, and
 #### 4. Data Loading:
 
 The transformed data will be loaded into the following target tables in the data warehouse (e.g., Azure Storges account):
-#### *Fact Tables:
+#### * Fact Tables:
 Orders_Fact(temp_view): Contains the final order data, including customer and product details, total amount spent, and shipping status.
-#### *Dimension Tables:
+#### * Dimension Tables:
  	Customer_Dim(temp_view): Enriched customer data, including demographic details like age and country.
 Shipping_Dim(temp_view):Contains shipping information, including status and tracking.
-#### *Data Loading Strategy:
+#### * Data Loading Strategy:
 Incremental Loading: 
 Only new or updated records should be loaded to avoid duplication.Batch or Stream Processing: Depending on the size and velocity of the data, implement batch loads (daily) or real-time stream loads (for APIs).
 Indexes: 
@@ -194,24 +194,23 @@ Partitioning:Partition data by Order_Date or Customer_ID for efficient query pro
 Caching:Cache intermediate DataFrames in memory to optimize repeated calculations (e.g., total amount per customer).
 Indexing:Index keys such as Customer_ID, and Order_ID in the target warehouse to speed up lookup queries.
 
-#### V. Communicating Findings and Insights
+## V. Communicating Findings and Insights
 
-Visualization Techniques:
+#### Techniques:
 To communicate the insights effectively to stakeholders, you can leverage the following visualization techniques:
-
-Pie Chart: Total Amount Spent for Pending Deliveries by Country
-Purpose:
+#### Pie Chart: Total Amount Spent for Pending Deliveries by Country
+###### Purpose:
 The goal of this pie chart is to show the proportion of total pending amount that each country contributes. This allows stakeholders to quickly see which countries have the largest or smallest pending deliveries.
-Key Insights:
-Country Contributions:
+#### Key Insights:
+#### 1. Country Contributions:
 The size of each slice represents the total pending delivery amount for that country as a proportion of the overall pending delivery total.
 Larger slices indicate countries with more pending orders in terms of monetary value.
-Visual Representation:
+#### 2. Visual Representation:
 Color Coding: Each country is represented by a different color. This makes it easy to distinguish between countries.
 Labels: The total pending amount (or percentage share) can be displayed directly on each slice, providing quick access to the exact values.
-Example:
+###### Example:
 Let’s say we have pending delivery data for three countries:
-UK: $ 1,36,300 (53.33% of total pending amount)
-UAE: $ 53,800 (21.3% of total pending amount)
-USA: $65,500 (25.63% of total pending amount)
+**UK:** $ 1,36,300 (53.33% of total pending amount)
+**UAE:** $ 53,800 (21.3% of total pending amount)
+**USA:** $65,500 (25.63% of total pending amount)
 
