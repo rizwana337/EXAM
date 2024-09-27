@@ -91,7 +91,10 @@ Customer_ID in the Shipping entity references Customer_ID in the Customer entity
 Type: One-to-One
 Description: Each order has a corresponding shipping record, indicating the delivery status and details.
 Relation:
-Order_ID in the Shipping entity references Order_ID in the Order entity.
+Order_ID in the Shipping entity references Order_ID in the Order entity.<img width="608" alt="Screenshot 2024-09-27 at 6 26 26 PM" src="https://github.com/user-attachments/assets/7c6792fc-c9df-4e73-81ac-e781554f768e">
+
 
 **Physical Model:**
+
+<img width="608" alt="Screenshot 2024-09-27 at 6 26 26 PM" src="https://github.com/user-attachments/assets/7c6792fc-c9df-4e73-81ac-e781554f768e">
 
