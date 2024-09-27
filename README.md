@@ -96,7 +96,9 @@ Order_ID in the Shipping entity references Order_ID in the Order entity.
 **Physical Model:**
 
 <img width="608" alt="Screenshot 2024-09-27 at 6 26 26 PM" src="https://github.com/user-attachments/assets/7c6792fc-c9df-4e73-81ac-e781554f768e">
+
 Fig: 5
+
 ## IV.  Technical Specifications:
 
 #### 1. Data Sources and Ingestion:
@@ -190,6 +192,7 @@ Validate those filters (e.g., age < 30) work correctly.
 
 
 #### 6. Performance Optimization
+
 Partitioning:Partition data by Order_Date or Customer_ID for efficient query processing.
 Caching:Cache intermediate DataFrames in memory to optimize repeated calculations (e.g., total amount per customer).
 Indexing:Index keys such as Customer_ID, and Order_ID in the target warehouse to speed up lookup queries.
@@ -197,6 +200,7 @@ Indexing:Index keys such as Customer_ID, and Order_ID in the target warehouse to
 ## V. Communicating Findings and Insights
 
 #### Techniques:
+
 To communicate the insights effectively to stakeholders, you can leverage the following visualization techniques:
 #### Pie Chart: Total Amount Spent for Pending Deliveries by Country
 ###### Purpose:
@@ -225,6 +229,7 @@ Fig: 6. the total number of transactions, total quantity sold, and total amount 
 Fig: 7
 
 #### Columns Explained:
+
 #### 1. Customer_ID:
 Unique identifier for each customer.
 This helps in identifying individual customers and their associated data.
@@ -241,6 +246,7 @@ It is the sum of all purchases across transactions for that customer.
 This column lists all the unique products purchased by the customer along with the quantity of each product.
 
 #### Bar Chart: Maximum Product Purchased by Country
+
 ###### Purpose:
 The bar chart visually represents the product that has been purchased the most in terms of quantity or value in each country.
 Each bar corresponds to a country and displays the product that had the highest total purchases (either by units or revenue).
@@ -250,6 +256,7 @@ Each bar corresponds to a country and displays the product that had the highest 
 Fig: 8
 
 #### Chart Setup:
+
 #### 1. X-axis (Country):
 Represents different countries.
 Each country will have one bar showing the most popular product.
@@ -272,6 +279,7 @@ The bar height reflects the total number of units sold or the total amount spent
 Fig: 9
 
 #### Chart Setup:
+
 #### 1. X-axis (Products):
 The horizontal axis will represent different products.
 Each product (e.g., "Keyboard," "Mouse," "Monitor") will be placed along the X-axis.
@@ -296,6 +304,7 @@ The areas may overlap for certain products, visually indicating where preference
 Fig:10. Country with Minimum Transactions and Sales Amount
 
 #### Columns Explained:
+
 #### 1. Country:
 The name of the country for which the minimum transactions and sales amount are recorded.
 This allows for easy identification of the region in question.
