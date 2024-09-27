@@ -1,4 +1,4 @@
-# Data Analysis and Management Framework for E-commerce
+![image](https://github.com/user-attachments/assets/ab80406d-a54b-4098-9ad4-f8ee3819232d)# Data Analysis and Management Framework for E-commerce
 
 This document provides a comprehensive analysis of sales and customer data, starts with data accuracy check’s, Outline Requirements, Data Modeling Steps. Also Exploring key metrics such as transaction volumes, sales amounts, and purchasing trends across different demographics and regions, while also identifying actionable insights for enhancing customer engagement and driving business growth.
 
@@ -219,5 +219,46 @@ Let’s say we have pending delivery data for three countries:
 ![image](https://github.com/user-attachments/assets/9a16ae25-f079-4811-9ec3-5a0ecd9c3ce9)
 
 Fig: the total number of transactions, total quantity sold, and total amount spent for each customer, along with the product details.
+
+![image](https://github.com/user-attachments/assets/455dd10a-b0d3-4214-8ec9-41ee2d5e9e21)
+
+#### Columns Explained:
+#### 1. Customer_ID:
+Unique identifier for each customer.
+This helps in identifying individual customers and their associated data.
+#### 2. Total_ Transactions( Number of Transactions):
+Represents the total number of orders or transactions the customer has made.
+This is an aggregation of all purchases made by that customer.
+#### 3. Total_ Quantity (Total Quantity Sold):
+The total number of units/products bought by the customer.
+If quantity information isn’t directly available, it may be inferred from other columns (e.g., if a customer ordered the same product multiple times).
+#### 4. Total_Amount _Spent:
+The total monetary value of all transactions made by the customer.
+It is the sum of all purchases across transactions for that customer.
+#### 5. Product_Details:
+This column lists all the unique products purchased by the customer along with the quantity of each product.
+
+#### Bar Chart: Maximum Product Purchased by Country
+###### Purpose:
+The bar chart visually represents the product that has been purchased the most in terms of quantity or value in each country.
+Each bar corresponds to a country and displays the product that had the highest total purchases (either by units or revenue).
+
+![image](https://github.com/user-attachments/assets/9886d15f-ea0d-4de8-a1e2-0656b58d9663)
+
+#### Chart Setup:
+#### 1. X-axis (Country):
+Represents different countries.
+Each country will have one bar showing the most popular product.
+#### 2. Y-axis (Amount):
+This axis will represent the total amount spent for the most purchased product in that country.
+Total Amount Spent: If you want to show which product generated the most revenue.
+#### 3. Bars (Products):
+Each bar will show the maximum purchased product for that country.
+The bar height reflects the total number of units sold or the total amount spent on that product.
+
+#### Area Chart: Most Purchased Product by Age Category
+###### Purpose:
+The area chart visualizes how product purchases vary across the two age groups: less than 30 and 30 or older.
+It shows the number of units sold (or total amount spent) for each product over these two age categories, allowing stakeholders to compare product preferences between the two groups.
 
 
