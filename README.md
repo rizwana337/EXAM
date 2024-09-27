@@ -214,6 +214,7 @@ Color Coding: Each country is represented by a different color. This makes it ea
 Labels: The total pending amount (or percentage share) can be displayed directly on each slice, providing quick access to the exact values.
 ###### Example:
 Let’s say we have pending delivery data for three countries:
+
 **UK:** $ 1,36,300 (53.33% of total pending amount)
 
 **UAE:** $ 53,800 (21.3% of total pending amount)
@@ -315,8 +316,11 @@ It helps understand the level of activity or engagement with customers in that r
 The monetary value of all transactions made in that country.
 This reflects the total revenue generated from sales in that country.
 we have aggregated data from your datasets and determined that **UK** has the fewest transactions and the lowest sales amount, the table would look as follows:
+
 **Country:** UK
+
 **Total Transactions:** 137 
+
 **Total Sales Amount:** $322800 (indicating the total revenue generated from those purchases).
 
 In summary, our analysis of sales and customer data reveals important trends and areas for improvement, helping us create targeted strategies to boost sales and better engage with our customers.
