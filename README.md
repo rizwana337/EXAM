@@ -113,11 +113,11 @@ Key Columns: Shipping_ID, Customer_ID, Status
 #### 2. Data Extraction
  we will extract data from the following sources: 
  
-*** Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
+***Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
 
-*** Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
+***Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
 
-*** Data Extraction Strategy:**
+***Data Extraction Strategy:**
 Use incremental extraction to pull only new or updated records based on timestamps eg:(Order_Date, Shipping_Date,’_az_update_ts’,’_az_insert_ts’).
 Make API calls at regular intervals to ensure the most recent shipment statuses are captured.
 
