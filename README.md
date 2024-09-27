@@ -76,18 +76,18 @@ Customer _ID (Foreign Key),
 Status
 
 #### 2. Relationships Between Entities
-###### Customer to Order:
+###### *Customer to Order:
 Type: One-to-Many
 Description: A customer can place multiple orders, but each order is associated with only one customer.
 Relation:
 Customer_ID in the Order entity references Customer_ID in the Customer entity.
 
-###### Customer to Shipping:
+###### *Customer to Shipping:
 Type: One-to-Many
 Description: A customer can have multiple shipping records associated with their orders.
 Relation:
 Customer_ID in the Shipping entity references Customer_ID in the Customer entity.
-###### Order to Shipping:
+###### *Order to Shipping:
 Type: One-to-One
 Description: Each order has a corresponding shipping record, indicating the delivery status and details.
 Relation:
@@ -101,37 +101,37 @@ Order_ID in the Shipping entity references Order_ID in the Order entity.
 
 #### 1. Data Sources and Ingestion:
 The data pipeline will need to ingest data from the following sources:
-###### Customer Data:
+###### *Customer Data:
 Source: CRM Database (e.g, MySQL)( 'Customer.xls')
 Key Columns: Customer_ID, First_Name, Last_Name, Country
-###### Order Data:
+###### *Order Data:
 Source: Order Management System(‘'Order.csv')
 Key Columns: Order_ID, Customer_ID, Total_Amount, Status
-###### Shipping Data:
+###### *Shipping Data:
 Source: Shipping/Delivery Management API('Shipping.json')
 Key Columns: Shipping_ID, Customer_ID, Status
 #### 2. Data Extraction
  we will extract data from the following sources: 
  
-**Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
+***Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
 
-**Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
+***Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
 
-**Data Extraction Strategy:**
+***Data Extraction Strategy:**
 Use incremental extraction to pull only new or updated records based on timestamps eg:(Order_Date, Shipping_Date,’_az_update_ts’,’_az_insert_ts’).
 Make API calls at regular intervals to ensure the most recent shipment statuses are captured.
+
 #### 3. Data Transformation
 The transformation step involves:
-#### Data Cleansing:
+#### *Data Cleansing:
 Dropping  duplicates (based on Customer_ID or Order_ID).
 Handled missing or null values (e.g., shipping status, order amounts).
 Handled special characterises (e.g., Frist name status, last name).
 Standardized text fields 
-#### Joining Tables:
+#### *Joining Tables:
 Customer with Shipping: Join on Customer_ID to obtain the shipping status for each order.
 (Customer with Shipping)join with Orders: Join on Customer_ID to get each customer’s order details.
-
-#### Derived Columns and Calculations:
+#### *Derived Columns and Calculations:
 1. Total Amount Spent and Country for the Pending Delivery Status for Each Country
 Objective: Calculated the total monetary value of transactions for orders that are still in a "Pending" delivery status and aggregate this by each country.
 Approach:
@@ -163,37 +163,39 @@ Implemented transformations using DataFrame APIs such as groupBy, agg, join, and
 #### 4. Data Loading:
 
 The transformed data will be loaded into the following target tables in the data warehouse (e.g., Azure Storges account):
-#### Fact Tables:
+#### *Fact Tables:
 Orders_Fact(temp_view): Contains the final order data, including customer and product details, total amount spent, and shipping status.
-Dimension Tables:
+#### *Dimension Tables:
  	Customer_Dim(temp_view): Enriched customer data, including demographic details like age and country.
 Shipping_Dim(temp_view):Contains shipping information, including status and tracking.
-Data Loading Strategy:
+#### *Data Loading Strategy:
 Incremental Loading: 
 Only new or updated records should be loaded to avoid duplication.Batch or Stream Processing: Depending on the size and velocity of the data, implement batch loads (daily) or real-time stream loads (for APIs).
 Indexes: 
 Create indexes on frequently queried columns (Customer_ID, Order_ID) to optimize query performance.
 
-5. Data Validation and Testing:
+#### 5. Data Validation and Testing:
+
 To ensure data accuracy and reliability, implement the following validation checks:
 
-Data Completeness:
+###### Data Completeness:
 Verify that all expected fields are populated (e.g., Customer_ID, Order_Date, Total_Amount).
-Data Integrity:
+###### Data Integrity:
 Ensure that joins between tables (e.g., Customer_ID in Orders and Customers) result in correct and complete data.
-Business Logic Validation:
+###### Business Logic Validation:
 Ensure that calculated fields (e.g., total sales, most purchased Item) are consistent with source data.
-Unit Tests:
+###### Unit Tests:
 Create unit tests for key transformations to ensure they produce the expected output.
 Validate those filters (e.g., age < 30) work correctly.
 
 
-6. Performance Optimization
+#### 6. Performance Optimization
 Partitioning:Partition data by Order_Date or Customer_ID for efficient query processing.
 Caching:Cache intermediate DataFrames in memory to optimize repeated calculations (e.g., total amount per customer).
 Indexing:Index keys such as Customer_ID, and Order_ID in the target warehouse to speed up lookup queries.
 
-V.  Communicating Findings and Insights
+#### V. Communicating Findings and Insights
+
 Visualization Techniques:
 To communicate the insights effectively to stakeholders, you can leverage the following visualization techniques:
 
