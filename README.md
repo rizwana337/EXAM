@@ -12,7 +12,7 @@ Findings are some of the column’s values in Customer table contains Special ch
 
 Fig: 1
 
-Validation Rules: Defined specific validation rules based on the requirements (e.g., acceptable value, data type checks).
+**Validation Rules:** Defined specific validation rules based on the requirements (e.g., acceptable value, data type checks).
 
 #### * Data Profiling:
 
@@ -34,7 +34,62 @@ Fig:4. Data profiling for Shipping table
 
 #### * Verified Checklist:
 
-** Completeness: Confirmed that all required fields are populated and check for missing records.
-Consistency: Validated that data formats are uniform across datasets (e.g., date formats, naming conventions). But some of the column’s values in Customer table contains Special characters.
-Timeliness: Assess whether the data is up-to-date and relevant for current analysis needs.
+**Completeness:** Confirmed that all required fields are populated and check for missing records.
+**Consistency:** Validated that data formats are uniform across datasets (e.g., date formats, naming conventions). But some of the column’s values in Customer table contains Special characters.
+**Timeliness:** Assess whether the data is up-to-date and relevant for current analysis needs.
+
+## II. Requirements Specification:
+
+#### A.  Data Components:
+  - Entities: Defined the main entities (e.g., Customers, Orders, Products).
+  - Attributes: Specify necessary attributes for each entity (e.g., Customer ID, Name, Age, Order Amount).
+  - Relationships: Outlined relationships between entities (e.g., one-to-many between Customers and Orders).
+##### B.  Quality Requirements:
+  - Defined acceptable thresholds for data quality metrics (e.g., accuracy > 95%, completeness > 90%).
+
+## III. Developed Data Models:
+
+#### High-Level Data Entities and Their Relationships
+
+#### 1. Entities Overview
+**1. Customer**
+Attributes:
+Customer_ID (Primary Key)
+First_Name
+Last_Name
+Age
+Country
+
+**2. Order**
+ Attributes:
+Order_ID (Primary Key)
+Customer_ID (Foreign Key)
+Amount
+Status
+
+**3.Shipping**
+Attributes:
+Shipping_ID (Primary Key)
+Customer _ID (Foreign Key)
+Status
+
+#### 2. Relationships Between Entities
+###### Customer to Order:
+Type: One-to-Many
+Description: A customer can place multiple orders, but each order is associated with only one customer.
+Relation:
+Customer_ID in the Order entity references Customer_ID in the Customer entity.
+
+###### Customer to Shipping:
+Type: One-to-Many
+Description: A customer can have multiple shipping records associated with their orders.
+Relation:
+Customer_ID in the Shipping entity references Customer_ID in the Customer entity.
+###### Order to Shipping:
+Type: One-to-One
+Description: Each order has a corresponding shipping record, indicating the delivery status and details.
+Relation:
+Order_ID in the Shipping entity references Order_ID in the Order entity.
+
+**Physical Model:**
 
