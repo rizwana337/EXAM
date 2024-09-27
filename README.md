@@ -160,9 +160,10 @@ Transformation Logic:
 Used PySpark for distributed processing.
 Implemented transformations using DataFrame APIs such as groupBy, agg, join, and filter.
 
-4. Data Loading:
+#### 4. Data Loading:
+
 The transformed data will be loaded into the following target tables in the data warehouse (e.g., Azure Storges account):
-Fact Tables:
+#### Fact Tables:
 Orders_Fact(temp_view): Contains the final order data, including customer and product details, total amount spent, and shipping status.
 Dimension Tables:
  	Customer_Dim(temp_view): Enriched customer data, including demographic details like age and country.
