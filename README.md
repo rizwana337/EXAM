@@ -111,24 +111,27 @@ Key Columns: Order_ID, Customer_ID, Total_Amount, Status
 Source: Shipping/Delivery Management API('Shipping.json')
 Key Columns: Shipping_ID, Customer_ID, Status
 #### 2. Data Extraction
- ###### we will extract data from the following sources:
+ we will extract data from the following sources: 
+ 
 **Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
+
 **Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
+
 **Data Extraction Strategy:**
 Use incremental extraction to pull only new or updated records based on timestamps eg:(Order_Date, Shipping_Date,’_az_update_ts’,’_az_insert_ts’).
 Make API calls at regular intervals to ensure the most recent shipment statuses are captured.
 #### 3. Data Transformation
 The transformation step involves:
-###### Data Cleansing:
+#### Data Cleansing:
 Dropping  duplicates (based on Customer_ID or Order_ID).
 Handled missing or null values (e.g., shipping status, order amounts).
 Handled special characterises (e.g., Frist name status, last name).
 Standardized text fields 
-###### Joining Tables:
+#### Joining Tables:
 Customer with Shipping: Join on Customer_ID to obtain the shipping status for each order.
 (Customer with Shipping)join with Orders: Join on Customer_ID to get each customer’s order details.
 
-###### Derived Columns and Calculations:
+#### Derived Columns and Calculations:
 1. Total Amount Spent and Country for the Pending Delivery Status for Each Country
 Objective: Calculated the total monetary value of transactions for orders that are still in a "Pending" delivery status and aggregate this by each country.
 Approach:
