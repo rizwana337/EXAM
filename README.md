@@ -14,7 +14,7 @@ Fig: 1
 
 Validation Rules: Defined specific validation rules based on the requirements (e.g., acceptable value, data type checks).
 
-#### Data Profiling:
+* Data Profiling:
 
 I have used in-build data profiling feature to analyze the source data for anomalies, missing values, 
 duplicates, and inconsistencies.
