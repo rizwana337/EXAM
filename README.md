@@ -9,10 +9,16 @@ Compared the data against known reliable values to validate accuracy and complet
 Findings are some of the column’s values in Customer table contains Special characters. 
 
 <img width="302" alt="image" src="https://github.com/user-attachments/assets/87e7e4ed-45f6-4606-b3e9-7ad512c13a33">
+
 Fig: 1
 
 Validation Rules: Defined specific validation rules based on the requirements (e.g., acceptable value, data type checks).
+
 #### Data Profiling:
+
 I have used in-build data profiling feature to analyze the source data for anomalies, missing values, 
 duplicates, and inconsistencies.
+
+<img width="434" alt="image" src="https://github.com/user-attachments/assets/ea6cf6cd-81a3-42b7-a941-f3553e787152">
+
 
