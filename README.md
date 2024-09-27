@@ -32,7 +32,7 @@ Fig:3. Data profiling for Order table
 Fig:4. Data profiling for Shipping table
 
 
-#### * Verified Checklist:
+#### . Verified Checklist:
 
 Completeness: Confirmed that all required fields are populated and check for missing records.
 Consistency: Validated that data formats are uniform across datasets (e.g., date formats, naming conventions). But some of the column’s values in Customer table contains Special characters.
