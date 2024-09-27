@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/ab80406d-a54b-4098-9ad4-f8ee3819232d)# Data Analysis and Management Framework for E-commerce
+# Data Analysis and Management Framework for E-commerce
 
 This document provides a comprehensive analysis of sales and customer data, starts with data accuracy check’s, Outline Requirements, Data Modeling Steps. Also Exploring key metrics such as transaction volumes, sales amounts, and purchasing trends across different demographics and regions, while also identifying actionable insights for enhancing customer engagement and driving business growth.
 
@@ -76,18 +76,18 @@ Customer _ID (Foreign Key),
 Status
 
 #### 2. Relationships Between Entities
-###### *Customer to Order:
+###### * Customer to Order:
 Type: One-to-Many
 Description: A customer can place multiple orders, but each order is associated with only one customer.
 Relation:
 Customer_ID in the Order entity references Customer_ID in the Customer entity.
 
-###### *Customer to Shipping:
+###### * Customer to Shipping:
 Type: One-to-Many
 Description: A customer can have multiple shipping records associated with their orders.
 Relation:
 Customer_ID in the Shipping entity references Customer_ID in the Customer entity.
-###### *Order to Shipping:
+###### * Order to Shipping:
 Type: One-to-One
 Description: Each order has a corresponding shipping record, indicating the delivery status and details.
 Relation:
@@ -96,28 +96,28 @@ Order_ID in the Shipping entity references Order_ID in the Order entity.
 **Physical Model:**
 
 <img width="608" alt="Screenshot 2024-09-27 at 6 26 26 PM" src="https://github.com/user-attachments/assets/7c6792fc-c9df-4e73-81ac-e781554f768e">
-
+Fig: 5
 ## IV.  Technical Specifications:
 
 #### 1. Data Sources and Ingestion:
 The data pipeline will need to ingest data from the following sources:
-###### *Customer Data:
+###### * Customer Data:
 Source: CRM Database (e.g, MySQL)( 'Customer.xls')
 Key Columns: Customer_ID, First_Name, Last_Name, Country
-###### *Order Data:
+###### * Order Data:
 Source: Order Management System(‘'Order.csv')
 Key Columns: Order_ID, Customer_ID, Total_Amount, Status
-###### *Shipping Data:
+###### * Shipping Data:
 Source: Shipping/Delivery Management API('Shipping.json')
 Key Columns: Shipping_ID, Customer_ID, Status
 #### 2. Data Extraction
  we will extract data from the following sources: 
  
-***Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
+*** Customer and Order Data:** Perform SQL queries to retrieve all necessary fields. The data should be extracted periodically (daily or as necessary) to capture new or updated records.
 
-***Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
+*** Shipping Data:** Pull real-time shipping updates through API calls to the external shipping system and store it in a staging table.
 
-***Data Extraction Strategy:**
+*** Data Extraction Strategy:**
 Use incremental extraction to pull only new or updated records based on timestamps eg:(Order_Date, Shipping_Date,’_az_update_ts’,’_az_insert_ts’).
 Make API calls at regular intervals to ensure the most recent shipment statuses are captured.
 
@@ -218,9 +218,11 @@ Let’s say we have pending delivery data for three countries:
 
 ![image](https://github.com/user-attachments/assets/9a16ae25-f079-4811-9ec3-5a0ecd9c3ce9)
 
-Fig: the total number of transactions, total quantity sold, and total amount spent for each customer, along with the product details.
+Fig: 6. the total number of transactions, total quantity sold, and total amount spent for each customer, along with the product details.
 
 ![image](https://github.com/user-attachments/assets/455dd10a-b0d3-4214-8ec9-41ee2d5e9e21)
+
+Fig: 7
 
 #### Columns Explained:
 #### 1. Customer_ID:
@@ -245,6 +247,8 @@ Each bar corresponds to a country and displays the product that had the highest 
 
 ![image](https://github.com/user-attachments/assets/9886d15f-ea0d-4de8-a1e2-0656b58d9663)
 
+Fig: 8
+
 #### Chart Setup:
 #### 1. X-axis (Country):
 Represents different countries.
@@ -257,8 +261,54 @@ Each bar will show the maximum purchased product for that country.
 The bar height reflects the total number of units sold or the total amount spent on that product.
 
 #### Area Chart: Most Purchased Product by Age Category
-###### Purpose:
-The area chart visualizes how product purchases vary across the two age groups: less than 30 and 30 or older.
-It shows the number of units sold (or total amount spent) for each product over these two age categories, allowing stakeholders to compare product preferences between the two groups.
 
+###### Purpose:
+* The area chart visualizes how product purchases vary across the two age groups: **less than 30 and 30 or older.**
+  
+* It shows the number of units sold (or total amount spent) for each product over these two age categories, allowing stakeholders to compare product preferences between the two groups.
+
+![image](https://github.com/user-attachments/assets/d3a6785f-f2b3-427d-829a-f1cf84976054)
+
+Fig: 9
+
+#### Chart Setup:
+#### 1. X-axis (Products):
+The horizontal axis will represent different products.
+Each product (e.g., "Keyboard," "Mouse," "Monitor") will be placed along the X-axis.
+#### 2. Y-axis (Quantity or Amount):
+The vertical axis will represent either the total quantity sold or the total amount spent.
+This reflects the total sales (units or amount) for each product by age category.
+#### 3.Areas (Age Categories):
+The chart will have two overlapping shaded areas:
+
+***Age < 30:** One area represents purchases made by customers under 30 years old.
+  
+***Age ≥ 30:** Another area represents purchases made by customers 30 years old or older.
+  
+The size of each area indicates how much that age group purchased of a particular product.
+Color Coding:
+Use two distinct colors to represent the two age categories. For example:
+**Age < 30:** Light blue.
+**Age ≥ 30:** Dark blue.
+The areas may overlap for certain products, visually indicating where preferences align or differ between age groups.
+
+<img width="453" alt="image" src="https://github.com/user-attachments/assets/697b07f7-80e2-43dc-a4ce-1c15ad5f6be2">
+Fig:10. Country with Minimum Transactions and Sales Amount
+
+#### Columns Explained:
+#### 1. Country:
+The name of the country for which the minimum transactions and sales amount are recorded.
+This allows for easy identification of the region in question.
+#### 2. Total Transactions:
+This column shows the **total number of transactions** made in that country.
+It helps understand the level of activity or engagement with customers in that region.
+#### 3. Total Sales Amount:
+The monetary value of all transactions made in that country.
+This reflects the total revenue generated from sales in that country.
+we have aggregated data from your datasets and determined that **UK** has the fewest transactions and the lowest sales amount, the table would look as follows:
+**Country:** UK
+**Total Transactions:** 137 
+**Total Sales Amount:** $322800 (indicating the total revenue generated from those purchases).
+
+In summary, our analysis of sales and customer data reveals important trends and areas for improvement, helping us create targeted strategies to boost sales and better engage with our customers.
 
