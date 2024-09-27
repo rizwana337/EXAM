@@ -35,7 +35,9 @@ Fig:4. Data profiling for Shipping table
 #### * Verified Checklist:
 
 **Completeness:** Confirmed that all required fields are populated and check for missing records.
+
 **Consistency:** Validated that data formats are uniform across datasets (e.g., date formats, naming conventions). But some of the column’s values in Customer table contains Special characters.
+
 **Timeliness:** Assess whether the data is up-to-date and relevant for current analysis needs.
 
 ## II. Requirements Specification:
@@ -52,25 +54,25 @@ Fig:4. Data profiling for Shipping table
 #### High-Level Data Entities and Their Relationships
 
 #### 1. Entities Overview
-**1. Customer**
+###### 1. Customer
 Attributes:
-Customer_ID (Primary Key)
-First_Name
-Last_Name
-Age
+Customer_ID (Primary Key),
+First_Name,
+Last_Name,
+Age,
 Country
 
-**2. Order**
+###### 2. Order
  Attributes:
-Order_ID (Primary Key)
-Customer_ID (Foreign Key)
-Amount
+Order_ID (Primary Key),
+Customer_ID (Foreign Key),
+Amount,
 Status
 
-**3.Shipping**
+###### 3.Shipping
 Attributes:
-Shipping_ID (Primary Key)
-Customer _ID (Foreign Key)
+Shipping_ID (Primary Key),
+Customer _ID (Foreign Key),
 Status
 
 #### 2. Relationships Between Entities
